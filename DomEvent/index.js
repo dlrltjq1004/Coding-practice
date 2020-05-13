@@ -7,10 +7,27 @@ let inputLength = () => {
 };
 
 const createListElement = () => {
-  var li = document.createElement("li");
+  const li = document.createElement("li");
+  const removeBtn = document.createElement("button");
+  const div = document.createElement("div");
+  const del = document.createElement("del");
+  removeBtn.appendChild(document.createTextNode("X"));
+
   li.appendChild(document.createTextNode(input.value));
-  ul.append(li);
+  ul.append(div);
+  div.style.display = "flex";
+  div.append(li);
+  div.append(removeBtn);
+  removeBtn.style.marginLeft = "5px";
   input.value = "";
+
+  li.addEventListener("click", function () {
+    li.classList.toggle("done");
+  });
+
+  removeBtn.addEventListener("click", function () {
+    div.remove();
+  });
 };
 
 const addListAfterClick = (event) => {
@@ -27,4 +44,4 @@ const addListAfterKeypress = (event) => {
 
 button.addEventListener("click", addListAfterClick);
 
-input.addEventListener("keypress", inputEvent);
+input.addEventListener("keypress", addListAfterKeypress);
