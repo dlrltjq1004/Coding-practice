@@ -21,10 +21,10 @@ const createListElement = () => {
   removeBtn.classList.add("removeBtn");
   input.value = "";
 
-  // Sopping List Text Cancel Event
+  // Sopping List - Text Cancel Event
   ShoppingTextToggle(li);
 
-  // Shopping List Remove Event
+  // Shopping List - Remove Event
   ShoppingRemoveBtnEvent(removeBtn, div);
 };
 
