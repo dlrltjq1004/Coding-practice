@@ -11,20 +11,30 @@ const createListElement = () => {
   const removeBtn = document.createElement("button");
   const div = document.createElement("div");
   const del = document.createElement("del");
-  removeBtn.appendChild(document.createTextNode("X"));
+  removeBtn.appendChild(document.createTextNode("Delete"));
 
   li.appendChild(document.createTextNode(input.value));
   ul.append(div);
-  div.style.display = "flex";
   div.append(li);
   div.append(removeBtn);
-  removeBtn.style.marginLeft = "5px";
+  div.classList.add("shoppingList_div");
+  removeBtn.classList.add("removeBtn");
   input.value = "";
 
+  // Sopping List Text Cancel Event
+  ShoppingTextToggle(li);
+
+  // Shopping List Remove Event
+  ShoppingRemoveBtnEvent(removeBtn, div);
+};
+
+const ShoppingTextToggle = (li) => {
   li.addEventListener("click", function () {
     li.classList.toggle("done");
   });
+};
 
+const ShoppingRemoveBtnEvent = (removeBtn, div) => {
   removeBtn.addEventListener("click", function () {
     div.remove();
   });
