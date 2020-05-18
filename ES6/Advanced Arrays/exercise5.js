@@ -63,11 +63,16 @@ const newArray = arrayNum.map((num, i) => {
 
 //BONUS: create a new list with all user information, but add "!" to the end of each items they own.
 
+// user.items.map(item) item = 배열의 value
+// item + "!"   ! 추가 후 반환
+// user.items 배열에 저장 됨
+
+// return user
+// array의 모든 items 배열에 반영 후 addMark에 저장
 const addMark = array.map((user) => {
-  user.username + "!";
-  user.score + "!";
-  user.team + "!";
-  user.items + "!";
+  user.items = user.items.map((item) => {
+    return item + "!";
+  });
 
   return user;
 });
